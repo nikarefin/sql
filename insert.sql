@@ -26,6 +26,5 @@ INSERT INTO collection(name, year)
      VALUES ('Лучшие песни', 2020), ('Баста+', 2015), ('Magic City', 2015),
             ('The Platinum Collection', 2000);
 
-
 INSERT INTO track_collection(track_id, collection_id)
      VALUES (1, 1), (2, 1), (4, 2), (7, 3), (8, 3), (10, 4), (11, 4), (12, 4);

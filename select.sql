@@ -21,10 +21,10 @@ SELECT name
     OR name LIKE '% my %'
     OR name LIKE '% my';
 
-   SELECT name as genre_name, COUNT(artist_id) as artist_count
-     FROM genre
-LEFT JOIN artist_genre ON name = genre_name
- GROUP BY name;
+  SELECT name as genre_name, COUNT(artist_id) as artist_count
+    FROM genre
+    JOIN artist_genre ON name = genre_name
+GROUP BY name;
 
 SELECT COUNT(track.id) as track_count
   FROM track
