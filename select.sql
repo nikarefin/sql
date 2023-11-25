@@ -16,8 +16,12 @@ SELECT name
 
 SELECT name
   FROM track
- WHERE name LIKE '% мой %'
+ WHERE name LIKE 'мой'
+    OR name LIKE 'мой %'
+    OR name LIKE '% мой %'
     OR name LIKE '% мой'
+    OR name LIKE 'my'
+    OR name LIKE 'my %'
     OR name LIKE '% my %'
     OR name LIKE '% my';
 
@@ -36,12 +40,21 @@ SELECT COUNT(track.id) as track_count
     JOIN album ON track.album_id = album.id
 GROUP BY album_name;
 
-SELECT artist.name as artist_name
+SELECT name as artist_name
   FROM artist
-  JOIN album ON artist.id = album.id
- WHERE year != 2020;
+ WHERE name NOT IN (
+     SELECT DISTINCT artist.name
+       FROM artist
+       JOIN artist_album ON artist.id = album_id
+       JOIN album ON album_id = album.id
+      WHERE YEAR = 2020
+      );
 
 SELECT collection.name as collection_name
   FROM collection
-  JOIN artist ON collection.id = artist.id
+  JOIN track_collection ON collection.id = track_id
+  JOIN track ON track_id = track.id
+  JOIN album ON track.id = album.id
+  JOIN artist_album ON album.id = artist_id
+  JOIN artist ON artist_id = artist.id
  WHERE artist.name = 'QUEEN';

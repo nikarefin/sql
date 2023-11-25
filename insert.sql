@@ -9,10 +9,10 @@ INSERT INTO artist_genre(artist_id, genre_name)
 
 INSERT INTO album(name, year)
      VALUES ('Ой, мама, шика дам!', 1998), ('Поколение Брат', 2020),
-            ('Город под подошвой', 2015), ('Live Killers', 1979);
+            ('Сансара', 2019), ('Город под подошвой', 2015), ('Live Killers', 1979);
 
 INSERT INTO artist_album(artist_id, album_id)
-     VALUES (1, 1), (2, 2), (3, 3), (4, 4);
+     VALUES (1, 1), (2, 2), (3, 3), (4, 4), (2, 5);
 
 INSERT INTO track(name, duration, album_id)
      VALUES ('Салма', '00:04:17', 1), ('Дива', '00:03:33', 1),
